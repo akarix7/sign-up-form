@@ -30,17 +30,21 @@
             <div class="form">
                 <div class="form-row">
                     <label for="first-name">First Name</label>
-                    <input id="first-name" name="first-name" type="text">
+                    <input id="first-name" name="first-name" type="text"
+                           placeholder="John" required>
                 </div>
 
                 <div class="form-row">
                     <label for="last-name">Last Name</label>
-                    <input id="last-name" name="last-name" type="text">
+                    <input id="last-name" name="last-name" type="text"
+                            placeholder="Doe" required>
                 </div>
 
                 <div class="form-row">
                     <label for="email">Email</label>
-                    <input id="email" name="email" type="email">
+                    <input id="email" name="email" type="email"
+                           placeholder="example@domain.com"
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
                 </div>
 
                 <div class="form-row">
@@ -50,12 +54,13 @@
 
                 <div class="form-row">
                     <label for="password">Password</label>
-                    <input id="password" name="password" type="password">
+                    <input id="password" name="password" type="password"
+                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 </div>
 
                 <div class="form-row">
                     <label for="confirm">Confirm Password</label>
-                    <input id="confirm" name="confirm" type="password">
+                    <input id="confirm" name="confirm" type="password" required>
                 </div>
 
             </div>
@@ -69,5 +74,7 @@
     </div>
 
 </div>
+
+<script src="./script.js"></script>
 </body>
 </html>
