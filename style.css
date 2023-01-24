@@ -26,7 +26,7 @@ body{
 
 #left{
     background-image: url("images/background.jpg");
-    width: 70vw;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
     margin-right: 40px;
@@ -59,10 +59,17 @@ body{
     box-shadow: 0 9px 2px #f5f5f5;
     margin-bottom: 25px;
 }
+
+.form{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+}
 .form-row{
     display: flex;
-    justify-content: start;
-    align-items: center;
+    flex-flow: column wrap;
+    padding: 10px 20px;
+    width: 35%;
 }
 
 .form-row label{
@@ -71,13 +78,19 @@ body{
     font-weight: 600;
 }
 
-.form-row input[type=text]{
+.form-row input[type=text],
+.form-row input[type=email],
+.form-row input[type=tel],
+.form-row input[type=password]{
     border: 1px solid #E5E7EB;
     padding: 7px;
     border-radius: 5px;
 }
 
-.form-row input[type=text]:focus{
+.form-row input[type=text]:focus,
+.form-row input[type=email]:focus,
+.form-row input[type=tel]:focus,
+.form-row input[type=password]:focus{
     box-shadow: 1px 3px 6px 1px #737373;
     border: 1px solid #E5E7EB;
 
@@ -86,6 +99,6 @@ body{
 #create{
     background-color: #596D48;
     color: #fff;
-    padding: 10px 35px;
+    padding: 10px 20px;
     border-radius: 8px;
 }
