@@ -1,3 +1,11 @@
+:root{
+    --main-color: #545D7E;
+    --sub-color: #313649;
+    --purple-gray: #2C2E3A;
+    --black: #1A171A;
+    --offshade-main: #505169;
+    --white: #E5E7EB;
+}
 body{
     margin: 0;
     padding: 0;
@@ -5,41 +13,53 @@ body{
     font-family: "Arial Rounded MT Bold", sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: #F9FAFB;
+    background-color: var(--purple-gray);
+    color: var(--white);
 }
 
 #container{
     display: flex;
     align-items: center;
-    height: 100vh;
+    /*height: 100vh;*/
 }
 
 #logo{
     font-family: "Unbounded", sans-serif;
     font-size: 4em;
-    color: #E5E7EB;
+    color: var(--white);
     background: rgb(0,0,0, 0.30);
     width: 100%;
     text-align: center;
     padding: 10px;
+    position: relative;
+    top: 20vw;
 }
 
 #left{
-    background-image: url("images/background.jpg");
+    background-image: url("images/massimiliano-morosinotto-xTfFmsXxEfA-unsplash.jpg");
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    padding-top: 40%;
+    /*padding-top: 40%;*/
     /*object-fit: contain;*/
-    /*background-size: contain;*/
+    background-size: cover;
     /*background-repeat: no-repeat;*/
 }
 
-.credits, .credits a:link, .credits a:visited{
-    color: #fff;
-    text-decoration: none;
+.credits{
     font-family: Arial, sans-serif;
-    font-size: 0.8em;
+    font-size: 0.6em;
+    position: relative;
+    bottom: -85vh;
+    color: #fff;
+    text-align: right;
+    text-transform: uppercase;
+    padding-right: 4px;
+    opacity: 0.50;
+}
+.credits a:link, .credits a:visited{
+    text-decoration: none;
+    color: #fff;
 }
 
 #left img{
@@ -50,14 +70,16 @@ body{
 }
 
 .description{
+    /*outline: red solid 1px;*/
     font-size: 1.3em;
     padding-left: 3vw;
 }
 
 .sign-up{
-    background: #fff;
-    box-shadow: 0 9px 2px #f5f5f5;
+    background: var(--sub-color);
+    box-shadow: 0 9px 5px -2px var(--offshade-main);
     margin-bottom: 25px;
+    padding: 15px 0;
 }
 
 .form{
@@ -98,10 +120,11 @@ body{
 }
 
 #create{
-    background-color: #596D48;
+    background-color: var(--black);
     color: #fff;
     padding: 10px 30px;
     border-radius: 8px;
+    border: 1px solid var(--white);
 }
 
 .account {
