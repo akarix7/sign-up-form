@@ -36,32 +36,36 @@ function readInput(){
 
     arr.forEach( (elem) => {
         elem.addEventListener("input", () => {
-            if(elem.id === arrId[0]){
-                errorMessage(1);
+            if(arrId.includes(elem.id) && document.querySelector(`#${elem.id}`).value === ""){
+                errorMessage(arrId.indexOf(elem.id));
             }
-            // console.log(elem.id)
-            //add function or send to errorMessage function
         })
     })
 
 }
 
 function errorMessage(errCode){
-    let pleaseProvide = "Please provide a ";
+    let pleaseProvide = "Please provide a";
 
     switch(errCode){
-        case 1: updateErrorMessage(`${pleaseProvide} first name`);
+        case 0: updateErrorMessage(`${pleaseProvide} first name`);
         break;
-        case 2: updateErrorMessage(`${pleaseProvide} last name`);
+        case 1: updateErrorMessage(`${pleaseProvide} last name`);
         break;
-        case 3: updateErrorMessage(`${pleaseProvide}n email`);
+        case 2: updateErrorMessage(`${pleaseProvide}n email`);
+        break;
+        case 3: updateErrorMessage(`${pleaseProvide} phone number`);
+        break;
+        case 4: updateErrorMessage(`${pleaseProvide} password`);
+        break;
+        case 5: updateErrorMessage(`${pleaseProvide} matching password.`);
         break;
         default: updateErrorMessage("Unknown Error.");
     }
 }
 
 function updateErrorMessage(errMessage){
-
+    console.log(errMessage);
 }
 
 function startup(){
