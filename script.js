@@ -24,7 +24,7 @@ function insertDiv(newNode, existingNode){
 function createDiv(){
     for(let i of input){
         let errDiv = document.createElement("div");
-        errDiv.className = `${i.id}-err`;
+        errDiv.id = `${i.id}-err`;
         //document.querySelector(`#${i.id}`).nextSibling
         insertDiv(errDiv, document.querySelector(`#${i.id}`));
     }
@@ -48,24 +48,25 @@ function errorMessage(errCode){
     let pleaseProvide = "Please provide a";
 
     switch(errCode){
-        case 0: updateErrorMessage(`${pleaseProvide} first name`);
+        case 0: updateErrorMessage(`${pleaseProvide} first name`, errCode);
         break;
-        case 1: updateErrorMessage(`${pleaseProvide} last name`);
+        case 1: updateErrorMessage(`${pleaseProvide} last name`, errCode);
         break;
-        case 2: updateErrorMessage(`${pleaseProvide}n email`);
+        case 2: updateErrorMessage(`${pleaseProvide}n email`, errCode);
         break;
-        case 3: updateErrorMessage(`${pleaseProvide} phone number`);
+        case 3: updateErrorMessage(`${pleaseProvide} phone number`, errCode);
         break;
-        case 4: updateErrorMessage(`${pleaseProvide} password`);
+        case 4: updateErrorMessage(`${pleaseProvide} password`, errCode);
         break;
-        case 5: updateErrorMessage(`${pleaseProvide} matching password.`);
+        case 5: updateErrorMessage(`${pleaseProvide} matching password.`, errCode);
         break;
-        default: updateErrorMessage("Unknown Error.");
+        default: updateErrorMessage("Unknown Error.", 404);
     }
 }
 
-function updateErrorMessage(errMessage){
-    console.log(errMessage);
+function updateErrorMessage(errMessage, code){
+    const arrId = getInputIdArr();
+    document.getElementById(`${arrId[code]}-err`).textContent = `${errMessage}`;
 }
 
 function startup(){

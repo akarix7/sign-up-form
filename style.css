@@ -5,6 +5,7 @@
     --black: #1A171A;
     --offshade-main: #505169;
     --white: #E5E7EB;
+    --error: #D91717;
 }
 body{
     margin: 0;
@@ -129,4 +130,8 @@ body{
 
 .account {
     padding-left: 2vw;
+}
+
+div[id$="err"]{
+    color: var(--error);
 }
