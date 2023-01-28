@@ -134,4 +134,5 @@ body{
 
 div[id$="err"]{
     color: var(--error);
+    font-size: 0.9em;
 }

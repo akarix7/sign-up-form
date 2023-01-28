@@ -38,6 +38,8 @@ function readInput(){
         elem.addEventListener("input", () => {
             if(arrId.includes(elem.id) && document.querySelector(`#${elem.id}`).value === ""){
                 errorMessage(arrId.indexOf(elem.id));
+            }else{
+                document.getElementById(`${arrId[arrId.indexOf(elem.id)]}-err`).textContent = "";
             }
         })
     })
@@ -58,7 +60,7 @@ function errorMessage(errCode){
         break;
         case 4: updateErrorMessage(`${pleaseProvide} password`, errCode);
         break;
-        case 5: updateErrorMessage(`${pleaseProvide} matching password.`, errCode);
+        case 5: updateErrorMessage("Passwords do not match", errCode);
         break;
         default: updateErrorMessage("Unknown Error.", 404);
     }
@@ -69,8 +71,20 @@ function updateErrorMessage(errMessage, code){
     document.getElementById(`${arrId[code]}-err`).textContent = `${errMessage}`;
 }
 
+function validatePasswords(){
+    const pwd2 = document.getElementById("pwd2");
+    pwd2.addEventListener("input", () => {
+        if(pwd2.value !== document.getElementById("pwd").value){
+            errorMessage(5);
+        }else{
+            pwd2.textContent = "";
+        }
+    })
+}
+
 function startup(){
     populateInputArr();
     createDiv();
     readInput();
+    validatePasswords();
 }
