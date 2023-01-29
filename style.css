@@ -76,7 +76,7 @@ body{
     padding-left: 3vw;
 }
 
-.sign-up{
+#sign-up{
     background: var(--sub-color);
     box-shadow: 0 9px 5px -2px var(--offshade-main);
     margin-bottom: 25px;
@@ -117,8 +117,11 @@ body{
 .form-row input[type=password]:focus{
     box-shadow: 1px 3px 6px 1px #737373;
     border: 1px solid #E5E7EB;
-
 }
+
+/*.form-row input:invalid{*/
+/*    border: 1px solid var(--error);*/
+/*}*/
 
 #create{
     background-color: var(--black);

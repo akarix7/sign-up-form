@@ -43,6 +43,9 @@ function readInput(){
             }
         })
     })
+}
+
+function checkValidity(input){
 
 }
 
