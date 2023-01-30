@@ -42,11 +42,12 @@ function readInput(){
                 document.getElementById(`${arrId[arrId.indexOf(elem.id)]}-err`).textContent = "";
             }
         })
+        elem.addEventListener("input", () => {
+            if(document.getElementById(`${arrId[arrId.indexOf(elem.id)]}`).validity.patternMismatch){
+                errorMessage((arrId.indexOf(elem.id)+3)*2);
+            }
+        });
     })
-}
-
-function checkValidity(input){
-
 }
 
 function errorMessage(errCode){
@@ -65,13 +66,28 @@ function errorMessage(errCode){
         break;
         case 5: updateErrorMessage("Passwords do not match", errCode);
         break;
+        case 6:
+        case 8: updateErrorMessage("Please enter characters only.", errCode);
+        break;
+        case 10: updateErrorMessage("Please enter a valid email.\nexample@domain.com", errCode);
+        break;
+        case 12: updateErrorMessage("Please follow format with dashes: 000-000-0000", errCode);
+        break;
+        case 14: updateErrorMessage("Include at least 1 capital letter\n\n" +
+            "Include at least 1 number\n\n" + "Must be at least 8 characters.", errCode);
+        break;
         default: updateErrorMessage("Unknown Error.", 404);
     }
 }
 
 function updateErrorMessage(errMessage, code){
     const arrId = getInputIdArr();
-    document.getElementById(`${arrId[code]}-err`).textContent = `${errMessage}`;
+    if(code < 5)
+        document.getElementById(`${arrId[code]}-err`).textContent = `${errMessage}`;
+    else{
+        code = (code/2) - 3;
+        document.getElementById(`${arrId[code]}-err`).textContent = `${errMessage}`;
+    }
 }
 
 function validatePasswords(){

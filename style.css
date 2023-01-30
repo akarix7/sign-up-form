@@ -80,7 +80,7 @@ body{
     background: var(--sub-color);
     box-shadow: 0 9px 5px -2px var(--offshade-main);
     margin-bottom: 25px;
-    padding: 15px 0;
+    padding: 15px 0 30px 0;
 }
 
 #form{
@@ -93,7 +93,7 @@ body{
     display: flex;
     flex-flow: column wrap;
     padding: 10px 20px;
-    width: 35%;
+    max-width: 32%;
 }
 
 .form-row label{
@@ -137,5 +137,7 @@ body{
 
 div[id$="err"]{
     color: var(--error);
-    font-size: 0.9em;
+    font-size: 0.8em;
+    position: absolute;
+    padding-top: 4px;
 }
