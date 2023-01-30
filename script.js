@@ -52,6 +52,7 @@ function readInput(){
 
 function errorMessage(errCode){
     let pleaseProvide = "Please provide a";
+    console.log("what");
 
     switch(errCode){
         case 0: updateErrorMessage(`${pleaseProvide} first name`, errCode);
@@ -82,7 +83,7 @@ function errorMessage(errCode){
 
 function updateErrorMessage(errMessage, code){
     const arrId = getInputIdArr();
-    if(code < 5)
+    if(code < 6)
         document.getElementById(`${arrId[code]}-err`).textContent = `${errMessage}`;
     else{
         code = (code/2) - 3;
@@ -93,6 +94,8 @@ function updateErrorMessage(errMessage, code){
 function validatePasswords(){
     const pwd2 = document.getElementById("pwd2");
     pwd2.addEventListener("input", () => {
+        console.log(pwd2.value);
+        console.log(document.getElementById("pwd").value);
         if(pwd2.value !== document.getElementById("pwd").value){
             errorMessage(5);
         }else{
